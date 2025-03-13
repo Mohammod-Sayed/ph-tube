@@ -33,7 +33,6 @@ const loadVideos = (searchText="") =>{
 
 // load video details
 const loadVideoDetails = (id)=> {
-    // console.log(id)
     fetch(`https://openapi.programming-hero.com/api/phero-tube/video/${id}`)
         .then(res => res.json())
         .then(data => displayVideoDetails(data.video))
