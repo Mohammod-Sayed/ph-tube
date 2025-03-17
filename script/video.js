@@ -90,7 +90,7 @@ const displayVideos = (videos)=>{
     // card
     videos.forEach((video) => {
         const card = document.createElement('div')
-        card.classList = 'card shadow-sm'
+        card.classList.add('card', 'shadow-sm')
         card.innerHTML = `
             <figure class="h-[200px] relative">
                 <img src=${video.thumbnail} class="h-full w-full object-cover" alt="Shoes" />
