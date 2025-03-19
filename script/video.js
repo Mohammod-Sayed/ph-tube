@@ -1,3 +1,4 @@
+// fetch all categorie video
 const loadCategories = ()=>{
     fetch('https://openapi.programming-hero.com/api/phero-tube/categories')
         .then(res => res.json())
@@ -7,7 +8,6 @@ const loadCategories = ()=>{
 
 // fetch video api & design button
 const loadCategoryVideos = (id)=>{
-    // console.log(id)
     fetch(`https://openapi.programming-hero.com/api/phero-tube/category/${id}`)
         .then(res => res.json())
         .then((data) => {
@@ -17,13 +17,12 @@ const loadCategoryVideos = (id)=>{
                 btnRemove.classList.remove("btn-color")
             }
             activeBtn.classList.add("btn-color")
-            // console.log(activeBtn)
             displayVideos(data.category)
         })
         .catch(error => console.error(error))
 }
 
-// fetch vidoe api
+// fetch video api
 const loadVideos = (searchText="") =>{
     fetch(`https://openapi.programming-hero.com/api/phero-tube/videos?title=${searchText}`)
         .then(res => res.json())
@@ -93,7 +92,7 @@ const displayVideos = (videos)=>{
         card.classList.add('card', 'shadow-sm')
         card.innerHTML = `
             <figure class="h-[200px] relative">
-                <img src=${video.thumbnail} class="h-full w-full object-cover" alt="Shoes" />
+                <img src=${video.thumbnail} class="h-full w-full object-cover"/>
                 ${
                     video.others.posted_date.length===0 ? '' : `<span class="absolute text-xs right-2 bottom-2 bg-black rounded px-1 text-white">${getTime(video.others.posted_date)}</span>`
                 }
